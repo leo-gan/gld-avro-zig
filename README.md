@@ -54,4 +54,4 @@ datum. `src/resolve.zig`, `src/jcodec.zig`, `src/ocf.zig`, and `src/soe.zig`
 are resolution, Avro JSON, container files, and single-object frames.
 `src/deflate.zig` is raw DEFLATE. `src/codegen.zig` emits Zig.
 
-Version `0.1.0` lives in `build.zig.zon` and `src/root.zig`.
+Version `0.2.0` lives in `build.zig.zon` and `src/root.zig`.

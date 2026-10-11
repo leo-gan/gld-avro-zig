@@ -1,7 +1,7 @@
 //! Public Apache Avro facade. Import this module as `avro`.
 const std = @import("std");
 
-pub const version = "0.1.0";
+pub const version = "0.2.0";
 pub const diag = @import("diag.zig");
 pub const Kind = diag.Kind;
 pub const Error = diag.Error;
