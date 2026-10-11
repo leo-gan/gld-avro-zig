@@ -5,7 +5,7 @@
 | **Document title** | Apache Avro serializer for Zig |
 | **Author** | Leonid Ganeline |
 | **Date** | 2026-10-11 |
-| **Status** | Implemented (0.1.0) |
+| **Status** | Implemented (0.2.0) |
 | **Module** | `avro` |
 | **CLI** | `gld-avrogen-zig` |
 | **License** | MIT, Copyright (c) 2026 Leonid Ganeline |
@@ -54,7 +54,7 @@ src/codegen.zig    Zig emitter
 src/main.zig       gld-avrogen-zig
 ```
 
-Version `0.1.0` is `build.zig.zon` `.version` and `avro.version` in `src/root.zig`.
+Version `0.2.0` is `build.zig.zon` `.version` and `avro.version` in `src/root.zig`.
 
 ## Wire
 
