@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "Document",
+  "namespace": "demo",
+  "fields": [
+    {"name": "id", "type": "long"},
+    {"name": "name", "type": "string"},
+    {"name": "flag", "type": "boolean"},
+    {"name": "count", "type": "int"},
+    {"name": "score", "type": "double"},
+    {"name": "ratio", "type": "float"},
+    {"name": "blob", "type": "bytes"},
+    {"name": "color", "type": {"type": "enum", "name": "Color", "symbols": ["RED", "GREEN", "BLUE"]}},
+    {"name": "hash", "type": {"type": "fixed", "name": "MD5", "size": 4}},
+    {"name": "tags", "type": {"type": "array", "items": "string"}, "default": ["a", "bb"]},
+    {"name": "labels", "type": {"type": "map", "values": "long"}, "default": {"k": 9}},
+    {"name": "inner", "type": {"type": "record", "name": "Inner", "fields": [{"name": "x", "type": "int"}]}},
+    {"name": "maybe", "type": ["null", "string"], "default": null},
+    {"name": "choice", "type": ["int", "string"]},
+    {"name": "note", "type": ["null", "string"], "default": null}
+  ]
+}
