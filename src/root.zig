@@ -1,0 +1,61 @@
+//! Public Apache Avro facade. Import this module as `avro`.
+const std = @import("std");
+
+pub const version = "0.1.0";
+pub const diag = @import("diag.zig");
+pub const Kind = diag.Kind;
+pub const Error = diag.Error;
+pub const wire = @import("wire.zig");
+pub const Writer = wire.Writer;
+pub const Reader = wire.Reader;
+pub const json = @import("json.zig");
+pub const schema = @import("schema.zig");
+pub const SchemaPool = schema.SchemaPool;
+pub const parseAvsc = schema.parseAvsc;
+pub const canon = @import("canon.zig");
+pub const canonicalForm = canon.canonicalForm;
+pub const emitSchemaJson = canon.emitSchemaJson;
+pub const crc64Avro = canon.crc64Avro;
+pub const fingerprint = canon.fingerprint;
+pub const value = @import("value.zig");
+pub const Datum = value.Datum;
+pub const decodeBin = value.decodeBin;
+pub const decodeOne = value.decodeOne;
+pub const jcodec = @import("jcodec.zig");
+pub const encodeJson = jcodec.encodeJson;
+pub const decodeJson = jcodec.decodeJson;
+pub const readDefault = jcodec.readDefault;
+pub const resolve = @import("resolve.zig");
+pub const decodeResolving = resolve.decodeResolving;
+pub const deflate = @import("deflate.zig");
+pub const ocf = @import("ocf.zig");
+pub const OcfWriter = ocf.OcfWriter;
+pub const readOcf = ocf.readOcf;
+pub const soe = @import("soe.zig");
+pub const encodeSingle = soe.encodeSingle;
+pub const decodeSingle = soe.decodeSingle;
+pub const decodeSingleResolving = soe.decodeSingleResolving;
+pub const logical = @import("logical.zig");
+pub const idl = @import("idl.zig");
+pub const parseAvdl = idl.parseAvdl;
+pub const parseAvpr = idl.parseAvpr;
+pub const codegen = @import("codegen.zig");
+pub const longLen = wire.longLen;
+pub const bytesLen = wire.bytesLen;
+
+test {
+    _ = diag;
+    _ = wire;
+    _ = json;
+    _ = schema;
+    _ = canon;
+    _ = value;
+    _ = jcodec;
+    _ = resolve;
+    _ = deflate;
+    _ = ocf;
+    _ = soe;
+    _ = logical;
+    _ = idl;
+    _ = codegen;
+}

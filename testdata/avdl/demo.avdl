@@ -1,0 +1,30 @@
+@namespace("demo")
+protocol Demo {
+  import idl "extra.avdl";
+  import schema "from_schema.avsc";
+  import protocol "../avpr/demo.avpr";
+  /** a color */
+  enum Color { RED, GREEN, BLUE }
+  fixed MD5(4);
+  record Inner {
+    int x;
+  }
+  record Document {
+    long id;
+    string name;
+    boolean flag;
+    int count;
+    double score;
+    float ratio;
+    bytes blob;
+    Color color;
+    MD5 hash;
+    array<string> tags = ["a", "bb"];
+    map<long> labels = {"k": 9};
+    Inner inner;
+    union { null, string } maybe = null;
+    union { int, string } choice;
+    string? note = null;
+  }
+  message send(string s) returns int;
+}

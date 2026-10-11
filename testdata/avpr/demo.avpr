@@ -1,0 +1,10 @@
+{
+  "protocol": "Q",
+  "namespace": "demo",
+  "types": [
+    {"type": "record", "name": "Note", "fields": [{"name": "t", "type": "string"}]}
+  ],
+  "messages": {
+    "ping": {"request": [], "response": "null"}
+  }
+}

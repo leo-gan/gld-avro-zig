@@ -1,0 +1,29 @@
+const std = @import("std");
+const avro = @import("avro");
+const A = @import("A.zig").A;
+
+pub const schema_json =
+    \\{"name":"B","type":"record","fields":[{"name":"a","type":["null",{"name":"A","type":"record","fields":[{"name":"b","type":["null","B"]}]}]}]}
+;
+
+pub const B = struct {
+    a: ?*A,
+    pub fn encodedLen(self: @This()) usize {
+        var n: usize = 0;
+        n += blk: { if (self.a) |v| break :blk avro.longLen(1) + v.*.encodedLen(); break :blk avro.longLen(0); };
+        return n;
+    }
+    pub fn encode(self: @This(), w: *avro.Writer) avro.Error!void {
+        if (self.a) |v| { try w.writeLong(1); try v.*.encode(w); } else try w.writeLong(0);
+    }
+    pub fn decode(r: *avro.Reader, gpa: std.mem.Allocator) avro.Error!@This() {
+        const a: ?*A = blk: { const idx = try r.readLong(); if (idx == 0) break :blk null; if (idx != 1) return error.BadUnion; const p = gpa.create(A) catch return error.OutOfMemory; p.* = try A.decode(r, gpa); break :blk p; };
+        errdefer if (a) |v| { v.deinit(gpa); gpa.destroy(v); };
+        return .{
+            .a = a,
+        };
+    }
+    pub fn deinit(self: *@This(), gpa: std.mem.Allocator) void {
+        if (self.a) |v| { v.deinit(gpa); gpa.destroy(v); }
+    }
+};
