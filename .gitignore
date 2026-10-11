@@ -1,0 +1,33 @@
+# Local notes and scratch. Never commit.
+temp/
+
+# Secrets. Never commit.
+.env
+.env.*
+!.env.example
+
+# Zig
+.zig-cache/
+zig-cache/
+zig-out/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+
+# MkDocs
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
