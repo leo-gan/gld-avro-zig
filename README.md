@@ -29,6 +29,21 @@ zig build
 
 `zig build` installs `gld-avrogen-zig` under `zig-out/bin`.
 
+## Depend on a release
+
+Zig fetches the git tag. The hash is on the GitHub Release. Registration is the `zig-package` topic, described in [docs/publishing.md](docs/publishing.md).
+
+```zig
+.dependencies = .{
+    .gld_avro_zig = .{
+        .url = "https://github.com/leo-gan/gld-avro-zig/archive/refs/tags/0.2.0.tar.gz",
+        .hash = "<hash from the 0.2.0 release>",
+    },
+},
+```
+
+The module name is `avro`.
+
 ## What it reads and writes
 
 | Surface | Behavior |
