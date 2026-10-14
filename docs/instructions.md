@@ -3,6 +3,33 @@
 These steps assume a Linux machine and Zig 0.16.0. The module name is `avro`.
 The package version in `build.zig.zon` is `0.2.0`.
 
+## Install
+
+Zig 0.16 fetches this package by URL and content hash. The package key is `gld_avro_zig`. The module name is `avro`.
+
+```zig
+.dependencies = .{
+    .gld_avro_zig = .{
+        .url = "https://github.com/leo-gan/gld-avro-zig/archive/refs/tags/0.2.0.tar.gz",
+        .hash = "gld_avro_zig-0.2.0-1wSpKL0YBABB8zW6GcpS_Gte5L8IhuRKluGvxAakuVIe",
+    },
+},
+```
+
+```zig
+const avro_dep = b.dependency("gld_avro_zig", .{
+    .target = target,
+    .optimize = optimize,
+});
+const avro = avro_dep.module("avro");
+```
+
+This records the same dependency:
+
+```bash
+zig fetch --save=gld_avro_zig https://github.com/leo-gan/gld-avro-zig/archive/refs/tags/0.2.0.tar.gz
+```
+
 ## Build this repository
 
 ```bash
