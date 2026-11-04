@@ -1,5 +1,7 @@
 # gld-avro-zig
 
+[Serialization](https://leo-gan.github.io/serialization/) is the hub for the theory, the history, and the benchmarks.
+
 A from-scratch [Apache Avro](https://avro.apache.org/docs/1.11.1/specification/)
 library for [Zig](https://ziglang.org/) 0.16. The import is `avro`. The code
 generator is `gld-avrogen-zig`.
